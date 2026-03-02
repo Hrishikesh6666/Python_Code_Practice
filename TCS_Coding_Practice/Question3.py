@@ -56,3 +56,5 @@ def search_range_builtin(arr,target):
     return [left,right]
 target = 7
 print(search_range_builtin(arr,target))
+
+
