@@ -25,3 +25,61 @@ else:
     else:
         print("No even frequency elements found")
     
+##============================ OR ==========================
+def even_frequency(arr):
+    freq = {}
+    
+    for num in arr:   # iterate over elements, not range(n)
+        freq[num] = freq.get(num, 0) + 1
+        # another methode to calculate frequency 
+        # if arr[num] in freq : freq [arr[num]] +=1
+    
+    for key in freq:
+        if freq[key] % 2 == 0:
+            print(key)
+
+arr = [1,2,3,4,5,6,7,8,9,2,4,6,8]  # example input
+even_frequency(arr)
+
+#================================another way ==================
+n = int(input("Enter size: "))
+arr = list(map(int, input("Enter: ").split()))
+
+for i in range(n):
+    count = 0
+    
+    for j in range(n):
+        if arr[i] == arr[j]:
+            count += 1
+    
+    # check AFTER finishing the count
+    if count % 2 == 0:
+        if arr[i] not in arr[:i]:   # ensures no duplicates printed
+            print(arr[i])
+
+## ====================TCS -Format =========================
+
+from collections import Counter
+n = int(input("Enter size: "))
+arr = list(map(int, input("Enter: ").split()))
+
+def find_even_freq(n,arr):
+    if n <=0:
+        print("Invalid: size must greater than 0")
+        return
+    for x in arr:
+        if x <= 0:
+            print("Invalit Input, Greter than 0")
+            return
+        freq = Counter(arr)
+        
+        # collect element with even frequency
+        result =[]
+        for num in arr:
+            if freq[num] % 2 ==0 and num not in result:
+                result.append(num)
+                
+        if result:
+            for num in result:
+                print(num)    
+find_even_freq(n, arr)

@@ -1,14 +1,30 @@
-def remove_duplicates(arr):
-    if not arr:
-        return 0
+def count_distinct_optimal(arr, k):
     n = len(arr)
-    i = 0
-    for j in range (1,n):
-        if arr[i] != arr[j]:
-            i += 1
-            arr[i] = arr[j]
-    return arr[:i+1]
-# Example usage
-arr = [1, 2, 2, 3, 4, 4, 5]
-print("Array after removing duplicates:", remove_duplicates(arr))
-    
+    freq = {}
+    result = []
+
+    # first window
+    for i in range(k):
+        freq[arr[i]] = freq.get(arr[i], 0) + 1
+
+    result.append(len(freq))
+
+    # sliding window
+    for i in range(k, n):
+        incoming = arr[i]
+        outgoing = arr[i-k]
+
+        freq[incoming] = freq.get(incoming, 0) + 1
+
+        freq[outgoing] -= 1
+        if freq[outgoing] == 0:
+            del freq[outgoing]
+
+        result.append(len(freq))
+
+    return result
+
+
+arr = [1,2,1,3,4,2,3]
+k = 4
+print(count_distinct_optimal(arr,k))
