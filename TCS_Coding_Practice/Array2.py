@@ -8,7 +8,7 @@ def remove_duplicates(arr):
         if arr[j] !=arr[i]:
             i+=1
             arr[i] =arr[j]
-    return i+1
+    return i
 
 # Example usage
 arr = [1, 1, 2, 3, 3, 4,4,4,5,5,5]
@@ -66,7 +66,7 @@ def is_subset(a, b):
     for num in b:
         if num not in freq or freq[num] == 0:
             return False
-        freq[num] -= 1
+        # freq[num] -= 1
     return True
 # Example usage
 a = [1, 2, 3, 4, 5] 

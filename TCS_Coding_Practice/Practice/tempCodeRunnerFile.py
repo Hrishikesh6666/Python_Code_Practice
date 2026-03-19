@@ -1,8 +1,12 @@
-def factorial(x):
-    if x ==0 and x ==1:
-        return 1
-    result = 1
-    for i in range(2,x+1):
-        result *= i
+num = int(input("Enter: "))
+
+def frequency(s):
+    freq = {}
+    for ch in s:
+        freq[ch] = freq.get(ch, 0) + 1
+    
+    # collect characters that appear exactly 'num' times
+    result = [key for key, value in freq.items() if value == num]
     return result
-print(factorial(9)) 
+
+print(frequency("aaaeoiu"))

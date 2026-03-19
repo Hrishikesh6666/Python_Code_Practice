@@ -106,7 +106,7 @@ print("Frequency of each element:", frequency)
 
 def count_frequency(arr):
     if not arr:
-        return
+        return 0
     
     arr.sort()
     count = 1
