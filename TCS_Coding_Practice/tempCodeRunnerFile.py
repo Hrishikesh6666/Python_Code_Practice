@@ -1,16 +1,16 @@
-# Remove duplicate elements from a sorted array
-def remove_duplicates(arr):
-    if not arr:
-        return 0
-    n= len(arr)
-    i= 0
-    for j in range(1,n):
-        if arr[j] !=arr[i]:
-            i+=1
-            arr[i] =arr[j]
-    return i
-
+def rearrange_array(arr):
+    n = len(arr)
+    arr.sort()
+    
+    mid = n//2
+    left = mid
+    right = n-1
+    
+    while left < right:
+        arr[left], arr[right] = arr[right], arr[left]
+        left += 1
+        right -= 1
+    return arr
 # Example usage
-arr = [1, 1, 2, 3, 3, 4,4,4,5,5,5]
-new_length = remove_duplicates(arr)
-print("Array after removing duplicates:", arr[:new_length])
+arr=[8,7,1,6,9,5]
+print("Rearranged array:", rearrange_array(arr))

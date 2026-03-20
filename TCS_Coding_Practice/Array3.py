@@ -124,7 +124,7 @@ count_frequency(arr)
 
 ## rearrange the array in increasing-decreasing order You need ordering + controlled placement
 
-# arr=[8,7,1,6,9,5] -> [1,5,6,7,9,8] 
+# arr=[8,7,1,6,9,5] -> [1,5,6,9,8,7] 
 
 
 def rearrange_array(arr):
